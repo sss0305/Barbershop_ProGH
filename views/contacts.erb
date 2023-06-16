@@ -1,0 +1,21 @@
+<h2>Feel free to write us:</h2>
+
+<form action="/contacts" method="POST">
+  <div class="mb-3">
+    
+  	<label>Your name</label>
+    <input name="username" type="text" placeholder="John" class="form-control" value="<%= @username %>" >
+    <br>
+    
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input name="email" type="email" placeholder="contact@mail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= @email %>" >
+    <br>
+    
+    <label>Your request</label>
+    <textarea name="text" type="textarea" placeholder="Type..." class="form-control" rows="3" <%= @text unless @text.nil? %> > </textarea>
+    <br>
+
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Send</button>
+</form>

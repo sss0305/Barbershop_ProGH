@@ -1,0 +1,58 @@
+<h2>Book your visit</h2>
+
+<script type="text/javascript">
+$(function() {
+  $('#color').simplecolorpicker();
+  $('#datetimepicker').datetimepicker();
+})
+</script>
+
+
+<form action="/visit" method="POST">
+  <div class="mb-3">
+    
+  	<label>Your name</label>
+    <input name="username" type="text" value="<%= @username %>" placeholder="John" class="form-control">
+    <br>
+    
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input name="email" type="email" value="<%= @email %>" placeholder="contact@mail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <br>
+    
+    <label>Phone</label>
+    <input name="phone" type="tel" value="<%= @phone %>" placeholder="1234567" class="form-control">
+    <br>
+
+    <label>Date</label>
+    <input name="date" type="text" id="datetimepicker" class="form-control" >
+    <br>
+
+    <!-- <label>Time</label>
+    <input name="time" type="time" class="form-control" value="<%= @time %>" >
+    <br> -->
+
+    <label>Barber</label>
+    <select class="form-control" name="barber" id="exampleFormControlSelect1" value="<%= @barber %>" >
+
+      <% @barbers.each do |item| %>
+        <option <%= @barber == item['name'] ? 'selected' : '' %>><%= item['name'] %></option>
+      <% end %>
+
+
+    </select>
+
+    
+  </div>
+  <br>
+    <label>Color</label>
+    <select name="color" id="color">
+      <option value="#7bd148">Green</option>
+      <option value="#5484ed">Bold blue</option>
+      <option value="#51b749">Bold green</option>
+      <option value="#fbd75b">Yellow</option>
+      <option value="#ffb878">Orange</option>
+      <option value="#ff887c">Red</option>
+    </select>
+  <br><br>
+  <button type="submit" class="btn btn-primary">Book</button>
+</form>
