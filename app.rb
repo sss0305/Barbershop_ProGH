@@ -83,7 +83,7 @@ end
 post '/admin' do
 	@b = Barber.new params[:barberabc]
 	if @b.save
-		erb "Thanks, barber is added. "
+		erb "Thanks, barber <%= @b.name %> is added."
 	else
 		@error = @b.errors.full_messages.first
 		erb :admin
