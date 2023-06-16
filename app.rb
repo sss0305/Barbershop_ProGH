@@ -29,11 +29,13 @@ end
 
 get '/' do
 	# @barbers = Barber.all
+
 	@barbers = Barber.order "created_at DESC"
 	 erb :index
 end
 
 get '/visit' do
+	@c = Client.new
 	erb :visit
 end
 
@@ -46,12 +48,13 @@ post '/visit' do
 
 
 	# Client.create :name => "#{@username}", :phone => "#{@phone}", :datestamp => "#{@date}", :barber => "#{@barber}", :color => "#{@color}"
+	#lame method
 
-	c = Client.new params[:clientabc]
-	if c.save
+	@c = Client.new params[:clientabc]
+	if @c.save
 		erb "Thanks, #{@username}. Barber #{@barber} will be waiting for you on #{@date}. "
 	else
-		@error = c.errors.full_messages.first
+		@error = @c.errors.full_messages.first
 		erb :visit
 	end
 

@@ -12,16 +12,16 @@ $(function() {
   <div class="mb-3">
     
   	<label>Your name</label>
-    <input name="clientabc[name]" type="text" value="" placeholder="John" class="form-control">
+    <input name="clientabc[name]" type="text" value="<%= @c.name %>" placeholder="John" class="form-control">
     <br>
   
     
     <label>Phone</label>
-    <input name="clientabc[phone]" type="tel" value="" placeholder="1234567" class="form-control">
+    <input name="clientabc[phone]" type="tel" value="<%= @c.phone %>" placeholder="1234567" class="form-control">
     <br>
 
     <label>Date</label>
-    <input name="clientabc[datestamp]" type="text" id="datetimepicker" class="form-control" >
+    <input name="clientabc[datestamp]" type="text" value="<%= @c.datestamp %>" id="datetimepicker" class="form-control" >
     <br>
 
     <!-- <label>Time</label>
