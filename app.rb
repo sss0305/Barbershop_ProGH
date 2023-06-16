@@ -48,10 +48,11 @@ post '/visit' do
 	# Client.create :name => "#{@username}", :phone => "#{@phone}", :datestamp => "#{@date}", :barber => "#{@barber}", :color => "#{@color}"
 
 	c = Client.new params[:clientabc]
-	c.save
-
-
-	erb "Thanks, #{@username}. Barber #{@barber} will be waiting for you on #{@date}. "
+	if c.save
+		erb "Thanks, #{@username}. Barber #{@barber} will be waiting for you on #{@date}. "
+	else
+		erb "<h2>ERROR</h2>"
+	end
 
 end
 
@@ -67,9 +68,4 @@ post '/contacts' do
 	Contact.create :username => "#{@username}", :email => "#{@email}", :text => "#{@text}"
 	erb  "Thanks, #{@username}!"
 end
-
-
-
-
-
 
