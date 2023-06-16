@@ -21,22 +21,22 @@ $(function() {
     <br>
 
     <label>Date</label>
-    <input name="clientabc[datestamp]" type="text" value="<%= @c.datestamp %>" id="datetimepicker" class="form-control" >
+    <input name="clientabc[datestamp]" type="text" value="<%= @c.datestamp %>" placeholder="Click to choose" id="datetimepicker" class="form-control" >
     <br>
 
     <!-- <label>Time</label>
     <input name="time" type="time" class="form-control" value="<%= @time %>" >
     <br> -->
 
-    <!-- <label>Barber</label>
-    <select class="form-control" name="barber" id="exampleFormControlSelect1" value="<%= @barber %>" >
+    <label>Barber</label>
+    <select class="form-control" name="clientabc[barber]" id="exampleFormControlSelect1" value="<%= @barber %>" >
 
       <% @barbers.each do |item| %>
         <option <%= @barber == item['name'] ? 'selected' : '' %>><%= item['name'] %></option>
       <% end %>
 
 
-    </select> -->
+    </select>
     
   </div>
   <br>
