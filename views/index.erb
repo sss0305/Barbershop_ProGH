@@ -1,7 +1,7 @@
 <h2>Our barbers:</h2>
 <% @barbers.each do |barber| %>
 <p>
-	<%= barber.id %>. <%= barber.name %>
+	<%= barber.id %>. <%= barber.name %>, working from <%= barber.created_at.strftime("%B %Y") %>.
 </p>
 
 
