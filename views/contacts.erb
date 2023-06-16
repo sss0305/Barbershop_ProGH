@@ -4,18 +4,23 @@
   <div class="mb-3">
     
   	<label>Your name</label>
-    <input name="username" type="text" placeholder="John" class="form-control" value="<%= @username %>" >
+    <input name="contactabc[username]" type="text" placeholder="John" class="form-control" value="<%= @cont.username %>" >
     <br>
     
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input name="email" type="email" placeholder="contact@mail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= @email %>" >
+    <input name="contactabc[email]" type="email" placeholder="contact@mail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= @cont.email %>" >
     <br>
     
     <label>Your request</label>
-    <textarea name="text" type="textarea" placeholder="Type..." class="form-control" rows="3" <%= @text unless @text.nil? %> > </textarea>
+   <!--  <textarea name="contactabc[text]" type="textarea" placeholder="Type..." class="form-control" rows="3" <%= @text unless @text.nil? %> > </textarea>
+    <br> -->
+    <textarea name="contactabc[text]" type="textarea" placeholder="Type..." class="form-control" rows="3" value="<%= @cont.text unless @cont.text.nil? %>" > </textarea>
     <br>
 
   </div>
   <br>
   <button type="submit" class="btn btn-primary">Send</button>
 </form>
+
+
+<%= @cont.username %>

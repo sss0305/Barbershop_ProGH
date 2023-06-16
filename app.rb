@@ -20,6 +20,9 @@ class Barber < ActiveRecord::Base
 end
 
 class Contact < ActiveRecord::Base
+	validates :username, presence: true
+	validates :email, presence: true
+	validates :text, presence: true
 end
 
 
@@ -53,7 +56,7 @@ post '/visit' do
 
 	@c = Client.new params[:clientabc]
 	if @c.save
-		erb "Thanks, #{@username}. Barber #{@barber} will be waiting for you on #{@date}. "
+		erb "Thanks, <%= @c.name %>. Barber <%= @c.barber %> will be waiting for you on <%= @c.datestamp %>. " 
 	else
 		@error = @c.errors.full_messages.first
 		erb :visit
@@ -62,16 +65,25 @@ post '/visit' do
 end
 
 get '/contacts' do
+	@cont = Contact.new
 	erb :contacts
 end
 
 post '/contacts' do
-	@username = params[:username]
-	@email = params[:email]
-	@text = params[:text]
+	# @username = params[:username]
+	# @email = params[:email]
+	# @text = params[:text]
 
-	Contact.create :username => "#{@username}", :email => "#{@email}", :text => "#{@text}"
-	erb  "Thanks, #{@username}!"
+	# Contact.create :username => "#{@username}", :email => "#{@email}", :text => "#{@text}"
+	# erb  "Thanks, #{@username}!"
+
+	@cont = Contact.new params[:contactabc]
+	if @cont.save
+		erb 'OK'
+	else
+		@error = @cont.errors.full_messages.first
+		erb :contacts
+	end
 end
 
 get '/admin' do
@@ -88,5 +100,4 @@ post '/admin' do
 		@error = @b.errors.full_messages.first
 		erb :admin
 	end
-
 end
