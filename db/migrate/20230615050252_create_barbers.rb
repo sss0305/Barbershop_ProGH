@@ -12,6 +12,7 @@ class CreateBarbers < ActiveRecord::Migration[7.0]
     Barber.create :name => 'Jessie'
     Barber.create :name => 'Walter'
     Barber.create :name => 'Gus'
+    Barber.create :name => 'Juan'
     
   end
 end
