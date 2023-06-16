@@ -16,6 +16,7 @@ class Client < ActiveRecord::Base
 end
 
 class Barber < ActiveRecord::Base
+	validates :name, presence: true
 end
 
 class Contact < ActiveRecord::Base
@@ -73,3 +74,19 @@ post '/contacts' do
 	erb  "Thanks, #{@username}!"
 end
 
+get '/admin' do
+	@b = Barber.new
+	erb :admin	
+end
+
+
+post '/admin' do
+	@b = Barber.new params[:barberabc]
+	if @b.save
+		erb "Thanks, barber is added. "
+	else
+		@error = @b.errors.full_messages.first
+		erb :admin
+	end
+
+end
