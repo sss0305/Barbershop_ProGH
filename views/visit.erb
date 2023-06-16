@@ -12,19 +12,19 @@ $(function() {
   <div class="mb-3">
     
   	<label>Your name</label>
-    <input name="username" type="text" value="<%= @username %>" placeholder="John" class="form-control">
+    <input name="clientabc[name]" type="text" value="" placeholder="John" class="form-control">
     <br>
     
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input name="email" type="email" value="<%= @email %>" placeholder="contact@mail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input name="clientabc[phone]" type="email" value="" placeholder="contact@mail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <br>
     
     <label>Phone</label>
-    <input name="phone" type="tel" value="<%= @phone %>" placeholder="1234567" class="form-control">
+    <input name="clientabc[phone]" type="tel" value="" placeholder="1234567" class="form-control">
     <br>
 
     <label>Date</label>
-    <input name="date" type="text" id="datetimepicker" class="form-control" >
+    <input name="clientabc[datestamp]" type="text" id="datetimepicker" class="form-control" >
     <br>
 
     <!-- <label>Time</label>
@@ -40,14 +40,11 @@ $(function() {
 
 
     </select> -->
-
-    
-
     
   </div>
   <br>
     <label>Color</label>
-    <select name="color" id="color">
+    <select name="clientabc[color]" id="color">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#51b749">Bold green</option>

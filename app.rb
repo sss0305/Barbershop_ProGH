@@ -34,15 +34,19 @@ get '/visit' do
 end
 
 post '/visit' do
-	@username =	params[:username]
-	# @email =	params[:email]
-	@phone =	params[:phone]
-	@date =		params[:date]
-	@barber =	params[:barber]
-	@color =	params[:color]
+	# @username =	params[:username]
+	# @phone =	params[:phone]
+	# @date =		params[:date]
+	# @barber =	params[:barber]
+	# @color =	params[:color]
 
 
-	Client.create :name => "#{@username}", :phone => "#{@phone}", :datestamp => "#{@date}", :barber => "#{@barber}", :color => "#{@color}"
+	# Client.create :name => "#{@username}", :phone => "#{@phone}", :datestamp => "#{@date}", :barber => "#{@barber}", :color => "#{@color}"
+
+	c = Client.new params[:clientabc]
+	c.save
+
+
 	erb "Thanks, #{@username}. Barber #{@barber} will be waiting for you on #{@date}. "
 
 end
